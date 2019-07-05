@@ -1,0 +1,66 @@
+{
+  "name": "frontend-reactjs",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.9.0",
+    "@fullcalendar/bootstrap": "^4.2.0",
+    "@fullcalendar/core": "^4.2.0",
+    "@fullcalendar/daygrid": "^4.2.0",
+    "@fullcalendar/interaction": "^4.2.0",
+    "@fullcalendar/timegrid": "^4.2.0",
+    "@lgaitan/pace-progress": "^1.0.7",
+    "bootstrap": "^4.3.1",
+    "bootstrap-colorpicker": "^3.1.2",
+    "bootstrap-slider": "^10.6.1",
+    "chart.js": "^2.8.0",
+    "datatables.net": "^1.10.19",
+    "datatables.net-bs4": "^1.10.19",
+    "daterangepicker": "^3.0.5",
+    "fastclick": "^1.0.6",
+    "flot": "^3.1.1",
+    "icheck-bootstrap": "^3.0.1",
+    "inputmask": "^4.0.8",
+    "ion-rangeslider": "^2.3.0",
+    "jquery": "^3.4.1",
+    "jquery-knob-chif": "^1.2.13",
+    "jquery-mapael": "^2.2.0",
+    "jquery-mousewheel": "^3.1.13",
+    "jquery-ui-dist": "^1.12.1",
+    "jqvmap": "github:CivilError/jqvmap",
+    "moment": "^2.24.0",
+    "overlayscrollbars": "^1.7.2",
+    "popper.js": "^1.15.0",
+    "raphael": "^2.2.8",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
+    "select2": "^4.0.7",
+    "sparklines": "^1.2.0",
+    "summernote": "^0.8.12",
+    "sweetalert2": "^8.12.1",
+    "tempusdominus-bootstrap-4": "^5.1.2",
+    "toastr": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
