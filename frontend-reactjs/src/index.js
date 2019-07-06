@@ -1,12 +1,15 @@
+import createHashHistory from 'history/createHashHistory';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { syncHistoryWithStore } from 'react-router-redux';
+import Root from './containers/root';
 import * as serviceWorker from './serviceWorker';
+import store from './stores';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const hashHistory = createHashHistory();
+const history = syncHistoryWithStore(hashHistory, store)
+const target = document.getElementById('root');
+const node = <Root store={store} routerHistory={history} />;
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+ReactDOM.render(node, target);
 serviceWorker.unregister();
