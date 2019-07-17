@@ -1,54 +1,47 @@
-import React from 'react';
-import { CookiesProvider } from 'react-cookie';
-import ReactGA from 'react-ga';
-import { Route, Switch } from 'react-router';
-import { HashRouter } from 'react-router-dom';
-import createHashHistory from 'history/createHashHistory';
-//import { Cookies } from 'react-cookie';
-import App from '../App';
+import React, { lazy, Suspense } from 'react';
+import { Route } from "react-router-dom";
+import { CombSpinner } from "react-spinners-kit";
+//import {Cookies} from 'react-cookie';
 
-ReactGA.initialize('UA-103436958-1');
-const fireTracking = function () {
-    ReactGA.set({ page: window.location.pathname });
-    ReactGA.pageview(window.location.pathname);
-}
+//Layouts
+export const CoreLayout = lazy(() => import('../layouts/coreLayout'));
+export const DashboardLayout = lazy(() => import('../layouts/DashboardLayout'));
+
+//public Components
+export const LoginView = lazy(() => import('../accountViews/LoginView.react'));
+
+//private Components
+export const UserProfile = lazy(() => import('../containers/user-profile/UserProfile.react'));
+
+const styleSuspenseDiv = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
+};
 
 /* const loggedIn = function () {
     if (Cookies.get('userToken')) {
-        Cookies.save("userToken", Cookies.get('userToken'), { maxAge: 1800 });
-        Cookies.set("userID", Cookies.get('userID'), { maxAge: 1800 });
+            Cookies.save("userToken", Cookies.get('userToken'), { maxAge: 1800 });
+        Cookies.set("userID", Cookies.get('userID'), {maxAge: 1800 });
         return true;
     } else return false;
-} */
-/* const requireAuth = function (nextState, replace) {
+}
+const requireAuth = function (nextState, replace) {
     if (!loggedIn()) {
-        replace({
-            pathname: '/'
-        })
-    }
-} */
+            replace({
+                pathname: '/'
+            })
+        }
+        } */
 
-const hashHistory = createHashHistory();
 export default (
-    <CookiesProvider>
-        <HashRouter history={hashHistory} onChange={fireTracking}>
-            <Switch>
-                <Route exact path="/" component={App} />
-                {/* <Route path="/city:*" component={App} />
-            <Route path="/*" component={() => 'NOT FOUND'} /> */}
-            </Switch>
-        </HashRouter>
-    </CookiesProvider>
+    <Suspense fallback={<div style={styleSuspenseDiv}><CombSpinner size={170} color="RED" /></div>}>
+        <Route component={CoreLayout}>
+            <Route exact path="/" component={LoginView} />
+            <Route exact path="/1" render={() => <DashboardLayout><UserProfile /></DashboardLayout>} />
+            {/* <Route exact path="/about-us" render={() => <DashboardLayout><UserProfile /></DashboardLayout>} onEnter={requireAuth}/> */}
+        </Route>
+    </Suspense>
 );
-
-/*
-<Route component={CoreLayout}>
-    <Route name='login' path='/' component={LoginView} />
-    <Route name='firsttime-reset-pass' path='/firsttime-reset-pass' component={ResetPassword} />
-    {/* <Route name='create-account' path='/create-account' component={CreateAccount}/> */
-/* <Route component={DashboardLayout}>
-    <Route name='user-excel-upload' path='/user-excel-upload' component={UserExcelUpload} onEnter={requireAuth} />
-
-</Route>
-</Route >
-    <Route path="*" component={NotFound} /> * / */

@@ -2,6 +2,15 @@
   "name": "frontend-reactjs",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "deploy": "now && now alias",
+    "start": "react-scripts start",
+    "now-start": "serve -s ./build",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "precommit": "pretty-quick --staged"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.9.0",
     "@fullcalendar/bootstrap": "^4.2.0",
@@ -14,6 +23,7 @@
     "bootstrap-colorpicker": "^3.1.2",
     "bootstrap-slider": "^10.6.1",
     "chart.js": "^2.8.0",
+    "connected-react-router": "^4.5.0",
     "datatables.net": "^1.10.19",
     "datatables.net-bs4": "^1.10.19",
     "daterangepicker": "^3.0.5",
@@ -37,26 +47,27 @@
     "react-cookie": "^4.0.1",
     "react-dom": "^16.8.6",
     "react-ga": "^2.6.0",
-    "react-redux": "^7.1.0",
-    "react-router": "^5.0.1",
-    "react-router-dom": "^5.0.1",
+    "react-redux": "^5.1.1",
+    "react-router": "^4.4.0-beta.8",
+    "react-router-dom": "^4.4.0-beta.8",
     "react-router-redux": "^4.0.8",
-    "react-scripts": "3.0.1",
-    "redux": "^4.0.1",
+    "react-spinners-kit": "^1.9.0",
+    "redux": "^4.0.4",
     "redux-promise-middleware": "^6.1.1",
     "redux-thunk": "^2.3.0",
+    "sanitize.css": "^7.0.3",
     "select2": "^4.0.7",
+    "serve": "^10.1.2",
     "sparklines": "^1.2.0",
+    "styled-components": "^4.3.2",
     "summernote": "^0.8.12",
-    "sweetalert2": "^8.12.1",
+    "sweetalert2": "^8.13.4",
     "tempusdominus-bootstrap-4": "^5.1.2",
     "toastr": "^2.1.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "prettier": "^1.18.2",
+    "react-scripts": "^2.1.8"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,15 +1,19 @@
-import createHashHistory from 'history/createHashHistory';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { syncHistoryWithStore } from 'react-router-redux';
-import Root from './containers/root';
-import * as serviceWorker from './serviceWorker';
-import store from './stores';
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'connected-react-router'
+import store, { history } from './store/store'
+import routes from './routes/index'
 
-const hashHistory = createHashHistory();
-const history = syncHistoryWithStore(hashHistory, store)
-const target = document.getElementById('root');
-const node = <Root store={store} routerHistory={history} />;
+const target = document.querySelector('#root')
 
-ReactDOM.render(node, target);
-serviceWorker.unregister();
+render(
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <div>
+        {routes}
+      </div>
+    </ConnectedRouter>
+  </Provider>,
+  target
+)
