@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import counter from './counter'
+import userProfile from './userProfileReducer'
 
 export default combineReducers({
-  counter
+  userProfile
 })

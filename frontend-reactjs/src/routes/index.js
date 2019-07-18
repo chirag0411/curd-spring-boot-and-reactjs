@@ -39,8 +39,8 @@ const requireAuth = function (nextState, replace) {
 export default (
     <Suspense fallback={<div style={styleSuspenseDiv}><CombSpinner size={170} color="RED" /></div>}>
         <Route component={CoreLayout}>
-            <Route exact path="/" component={LoginView} />
-            <Route exact path="/1" render={() => <DashboardLayout><UserProfile /></DashboardLayout>} />
+            <Route name="login-view" exact path="/" component={LoginView} />
+            <Route name="user-profie" exact path="/1" render={() => <DashboardLayout><UserProfile /></DashboardLayout>} />
             {/* <Route exact path="/about-us" render={() => <DashboardLayout><UserProfile /></DashboardLayout>} onEnter={requireAuth}/> */}
         </Route>
     </Suspense>
